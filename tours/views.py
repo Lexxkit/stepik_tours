@@ -2,7 +2,6 @@ from random import sample
 
 from django.shortcuts import render
 from django.http import Http404, HttpResponseNotFound, HttpResponseServerError
-
 from django.views import View
 
 import data
@@ -15,10 +14,9 @@ class MainView(View):
         # Create dictionary with 6 random tours for render at index.html
         random_tours = {idx: data.tours[idx] for idx in random_tours_id}
         context = {'random_tours': random_tours,
-                   'title': data.title,
                    'subtitle': data.subtitle,
-                   'description': data.description,
-                   'departures': data.departures}
+                   'description': data.description
+                   }
         return render(request, 'tours/index.html', context=context)
 
 
@@ -40,9 +38,8 @@ class DepartureView(View):
                    'min_price': min(prices),
                    'max_price': max(prices),
                    'min_nights': min(nights),
-                   'max_nights': max(nights),
-                   'title': data.title,
-                   'departures': data.departures}
+                   'max_nights': max(nights)
+                   }
         return render(request, 'tours/departure.html', context=context)
 
 
@@ -56,9 +53,8 @@ class TourView(View):
         departure_name = data.departures[tour['departure']]
 
         context = {'tour': tour,
-                   'departure_name': departure_name,
-                   'departures': data.departures,
-                   'title': data.title}
+                   'departure_name': departure_name
+                   }
         return render(request, 'tours/tour.html', context=context)
 
 
