@@ -7,7 +7,7 @@
       <p class="lead">{{ tour.country }} {{ departure_name }} {{ tour.nights }} ночей</p>
       <img src="{{ tour.picture }}" class="w-75" alt="">
       <p class="my-4 w-75">{{ tour.description }}</p>
-      <a href="https://forms.gle/uyJzbE3niuY8aAP36" class="btn btn-success btn-lg">Купить тур за {{ tour.price }}</a>
+      <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/uyJzbE3niuY8aAP36" class="btn btn-success btn-lg">Купить тур за {{ tour.price }}</a>
     </section>
   </main>
 {% endblock %}
